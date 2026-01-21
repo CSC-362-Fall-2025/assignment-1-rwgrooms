@@ -1,8 +1,37 @@
-//Place your needed include statements here (This is roughly the equivelent of libraries in python)
+#include <stdio.h>
+#include <stdlib.h>
 
+int main() {   
+      int numElements, i;
+      int *arr = NULL;
 
-int main(int argc, char* argv[]){
-  //Place your solution code here
+      printf("Enter number of elements: ");
+      scanf("%d", &numElements);
 
-  return 0;
-}
+      if (numElements <= 0) {
+          printf("Invalid Input\n");
+          return 1;
+      }
+
+      arr = (int *)malloc(numElements * sizeof(int));
+
+      if (arr == NULL) {
+          printf("Memory allocation issue.\n");
+          return 1;
+      }
+
+      printf("Enter %d integers:\n", numElements);
+      for (i = 0; i < numElements; i++) {
+          scanf("%d", &arr[i]);
+      }
+
+      printf("Reverse order: ");
+      for (i = numElements - 1; i >= 0; i--) {
+          printf("%d ", arr[i]);
+      }
+      printf("\n");
+
+      free(arr);
+
+      return 0;
+  }
