@@ -33,5 +33,7 @@ int main() {
 
       free(arr);
 
+      arr = NULL;
+
       return 0;
   }
